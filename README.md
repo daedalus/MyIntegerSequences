@@ -52,6 +52,8 @@ Wikipedia, <a href="https://en.m.wikipedia.org/wiki/Hadamard_matrix">Hadamard Ma
 ### XREF ###
 Cf. A003432.
 
+
+
 ## Sum of distinct values of the quadratic discriminant D=b^2-4ac, for a,b,c in the range [-n,n]. ##
 
 ### DATA ###
