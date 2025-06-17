@@ -1349,3 +1349,57 @@ print([a(n) for n in range(0,76)])
 
 ### XREF ### 
 Cf. A000142, A000225, A016825, A019442, A188135, A016813.
+
+
+## a(n) is the product of antidivisors of the totient of n. ##
+
+### DATA ###
+`1, 1, 3, 1, 4, 3, 4, 3, 84, 3, 40, 4, 15, 15, 33, 4, 1680, 15, 40, 84, 8100, 15, 312, 40, 1680, 40, 25080, 15, 960, 33, 312, 33, 112, 40, 192, 1680, 112, 33, 11664, 40, 114240, 312, 112, 8100, 33852, 33, 114240, 312, 257985, 112, 9261000, 1680, 11664, 112, 192, 25080, 6296940, 33, 10053120, 960, 192, 257985, 3040, 312, 280896, 257985, 696, 112, 315840, 112, 15924480, 192, 11664`
+
+### OFFSET ###
+3
+
+### FORMULA ###
+```
+a(n) = Product_{d in antidivisors(totient(n))} d.
+a(n) = A091507(A000010(n)).
+```
+
+### CODE ###
+```
+(Python)
+from sympy.ntheory.factor_ import antidivisors
+from sympy import prod, totient
+a = lambda n: prod(antidivisors(totient(n)))
+print([a(n) for n in range(3, 76)])
+```
+
+### KEYWORD ###
+easy
+
+# XREF ###
+Cf. A000010, A091507.
+
+
+## Product of the totients of the antidivisors of n. ##
+ 
+### DATA ###
+`1, 1, 1, 2, 2, 2, 8, 8, 2, 24, 12, 16, 48, 24, 8, 20, 480, 192, 24, 96, 12, 768, 384, 48, 768, 64, 480, 5760, 36, 64, 864, 41472, 960, 88, 1056, 32, 1280, 153600, 1440, 1728, 216, 6144, 3584, 224, 27648, 8640, 4320, 1152, 14400, 38400, 32, 442368, 110592, 96, 2880, 576, 3168, 608256, 331776, 491520, 800, 12800, 69120, 84, 4032, 17280, 17915904, 663552, 44, 17664, 11040, 1720320, 677376, 12096, 1280`
+
+### OFFSET ###
+1
+
+### FORMULA ###
+`a(n) = Product_{d in antidivisors(n)} totient(d).`
+
+### PROG ###
+```
+(Python)
+from sympy.ntheory.factor_ import antidivisors
+from sympy import prod, totient
+a = lambda n: prod(totient(d) for d in antidivisors(n))
+print([a(n) for n in range(1, 76)])
+```
+
+### XREF ###
+Cf. A000010, A091507.
