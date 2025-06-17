@@ -649,7 +649,7 @@ def a(n):
 print([a(n) for n in range(1,21)])
 ```
 
-### KEYWORDS ###
+### KEYWORD ###
 base
 
 
@@ -817,7 +817,7 @@ def a(n):
 print([a(n) for n in range(1,26)])
 ```
 
-### KEYWORDS ###
+### KEYWORD ###
 base
 
 
@@ -1418,7 +1418,7 @@ print([a(n) for n in range(3, 76)])
 ### KEYWORD ###
 easy
 
-# XREF ###
+### XREF ###
 Cf. A000010, A091507.
 
 
