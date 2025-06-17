@@ -22,7 +22,7 @@ a(n) grows ∼ n + floor(n/2).
 a(n) <= 2*n-1.
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def a(n):
@@ -64,7 +64,7 @@ Cf. A003432.
 ### COMMENTS ###
 Conversely the count of distinct values of the quadratic discriminant D=b^2-4ac, for a,b,c in the range [-n,n] is A384666.
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def a(n):
@@ -110,7 +110,7 @@ a(n) = A000010(A384763(n)).
 a(p) = A008330(p) for p prime.
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from sympy import totient, divisors, gcd
@@ -150,15 +150,15 @@ Cf. A000010, A008330, A384763.
 
 
 
-## The integer representation of the reversal of the Reed-Muller code of size 2^(n+1)-1. ##
+## The integer representation of the reversal of the Reed-Muller PROG of size 2^(n+1)-1. ##
 
 ### DATA ###
 `1, 14, 3820, 4006538480, 1127740325610919595933440, 5855562549912621432400532814181205703033719227392014090240, 678027821314169029533837277126308108243817843666549070645730770517828410950207716447345344965940166970542012394294840655177503788236800`
 
 ### COMMENTS ###
 ```
-Reed-Muller codes are created such that H(0) is 1 and H(n) is a concatenation equal to: 2^(n-1) zeros plus 2^(n-1) ones plus two copies of H(n-1).
-Typically, these codes contain leading zeros. To avoid ignoring them and loss of general information, we reverse the code, since they always end in ones.
+Reed-Muller PROGs are created such that H(0) is 1 and H(n) is a concatenation equal to: 2^(n-1) zeros plus 2^(n-1) ones plus two copies of H(n-1).
+Typically, these PROGs contain leading zeros. To avoid ignoring them and loss of general information, we reverse the PROG, since they always end in ones.
 A self-similar structure can easily be observed in the binary expansion of a(n).
 The bitsize of a(n) is n*2^(n-1).
 ```
@@ -171,7 +171,7 @@ The bitsize of a(n) is n*2^(n-1).
 
 ### EXAMPLE ###
 ```
-The Reed-muller codes are:
+The Reed-muller PROGs are:
  n | H(n)                                | reversed                         | a(n)
 ---+-------------------------------------+----------------------------------+------
  0 | 1                                   | 1                                | 1
@@ -181,9 +181,9 @@ The Reed-muller codes are:
 ```
 
 ### LINK ###
-Youtube, <a href="https://www.youtube.com/watch?v=CtOCqKpti7s">Reed-Muller Code (64 Shades of Grey pt2) - Computerphile</a>
+Youtube, <a href="https://www.youtube.com/watch?v=CtOCqKpti7s">Reed-Muller PROG (64 Shades of Grey pt2) - Computerphile</a>
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from functools import cache
@@ -219,7 +219,7 @@ For n=5 a(5) = 2, because there are three sets that matches the said condition:
 {1, 3, 4, 5} and {1, 2, 3, 4, 5}
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def a(n):
@@ -253,7 +253,7 @@ Cf. A383968.
 ### FORMULA ###
 `a(A000040(n)) = n.`
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from sympy import primerange
@@ -297,7 +297,7 @@ Aplying the Rule 110 we get:
 and 111000_2 = 14.
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def a(n):
@@ -328,7 +328,7 @@ base
 ### FORMULA ###
 `a(p) = 2 if p is an odd prime.`
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from sympy import primerange
@@ -362,7 +362,7 @@ a(2^k) = 1
 a(2^k+1) = 2 if k > 1.
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def a(n):
@@ -396,7 +396,7 @@ Cf. A383270.
 ### OFFSET ###
 1
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def a(n):
@@ -428,7 +428,7 @@ a(n) = A008302(n+1, A000217(n)) for n >= 2.
 ### LINKS ###
 Mancala World, <a href="https://mancala.fandom.com/wiki/Tchoukaillon">Tchoukaillon</a>.
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from functools import lru_cache
@@ -462,7 +462,7 @@ a(n) = T(n*n,n) with T(x,y) = Sum_{v=0..min(x,y)} T(x-1, y-v) and T(0,y) = 1 if 
 a(n) = A008302(A098749(n), n+1)
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from functools import lru_cache
@@ -494,7 +494,7 @@ Last digit in a(n) is A375584(m).
 H. Michael Damm, <a href="https://doi.org/10.1016/j.disc.2006.05.033">Totally anti-symmetric quasigroups for all orders n not equal to 2 or 6</a>, Discrete Math., 307:6 (2007), 715-729.
 Wikipedia, <a href="https://en.wikipedia.org/wiki/Damm_algorithm">Damm algorithm</a>.
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 t = [
@@ -537,7 +537,7 @@ base
 ### LINK ###
 Wikipedia, <a href="https://en.wikipedia.org/wiki/Non-adjacent_form">Non-adjacent form</a>.
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def g(n):
@@ -569,7 +569,7 @@ Cf. A030190, A379015.
 ### OFFSET ###
 1
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from sympy import primerange
@@ -584,7 +584,7 @@ print([a(n) for n in range(3,31)])
 ### XREF ###
 Cf. A024934.
 
-## Integer encoding of the Huffman-reverse-binary of digit frequency codes from a string concatenated 0 through n-1 in hex. ##
+## Integer encoding of the Huffman-reverse-binary of digit frequency PROGs from a string concatenated 0 through n-1 in hex. ##
 
 ### DATA ###
 `0, 2, 28, 228, 4004, 64196, 1027176, 16434824, 534431368, 17103505032, 547312453256, 17513998550664, 560447953628296, 17934334516106504, 573898704515408272, 18364758544493064720, 15905192667998458110, 32091890336705087591, 294840779328134333229, 294840779309540717289`
@@ -594,8 +594,8 @@ Cf. A024934.
 
 ### COMMENTS ###
 ```
-The huffman resulting codes are agnostic to the order of concatenation, It could be 0..(n-1) or (n-1)..0.
-Concatenate the hex digits of all numbers from 0 to n-1 into a string, compute the digit frequencies, construct a Huffman code using these frequencies, reverse the binary codes for each digit (in order of increasing digit), concatenate these reversed codes, and interpret the result as a binary number.
+The huffman resulting PROGs are agnostic to the order of concatenation, It could be 0..(n-1) or (n-1)..0.
+Concatenate the hex digits of all numbers from 0 to n-1 into a string, compute the digit frequencies, construct a Huffman PROG using these frequencies, reverse the binary PROGs for each digit (in order of increasing digit), concatenate these reversed PROGs, and interpret the result as a binary number.
 ```
 
 ### LINKS ###
@@ -605,15 +605,15 @@ Wikipedia, <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman coding
 ```
 For n = 5, a(5) = 4004 because:
 '01234' has a the following Huffman coding: {'2':'00','3':'01','4':'10','0':'110','1':'111'},
-and the reversed and concatenated codes: '111110100100_2 = 4004.
+and the reversed and concatenated PROGs: '111110100100_2 = 4004.
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from heapq import heappush, heappop, heapify
 from collections import defaultdict
-def encode(S):
+def enPROG(S):
     if len(S) < 2: return [(s, '0') for s in S]
     h = [[w, [s, ""]] for s, w in S.items()]
     heapify(h)
@@ -627,14 +627,14 @@ def a(n):
     t = "".join([hex(x)[2:] for x in range(0,n)])
     s = defaultdict(int)
     for c in t: s[c] += 1
-    return int("".join([p[1] for p in encode(s)][::-1]),2)
+    return int("".join([p[1] for p in enPROG(s)][::-1]),2)
 print([a(n) for n in range(1,21)])
 ```
 
 ### KEYWORDS ###
 base
 
-## The Hamming(7,4) error-correcting code encoding of n. ##
+## The Hamming(7,4) error-correcting PROG encoding of n. ##
 
 ### DATA ###
 `0, 7, 28, 15, 56, 45, 30, 11, 112, 25, 90, 51, 60, 85, 22, 127, 448, 195, 100, 359, 360, 107, 204, 463, 240, 499, 340, 87, 88, 347, 508, 255, 896, 645, 390, 131, 200, 461, 718, 971, 720, 981, 214, 467, 408, 157, 926, 667, 480, 229, 998, 739, 680, 941, 174, 427, 176, 437, 694`
@@ -646,7 +646,7 @@ a(n) always has an even number of bits set.
 ```
 
 ### LINKS ###
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Hamming_code">Hamming code</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Hamming_PROG">Hamming PROG</a>
 
 ### OFFSET ###
 0
@@ -655,7 +655,7 @@ Wikipedia, <a href="https://en.wikipedia.org/wiki/Hamming_code">Hamming code</a>
 ```
 For n = 11, a(11) = 51 because 11 = 1011_2 and
 floor(log2(11)) + 1 = 4 and
-p = 3 such that 2^3 >= 4 + 3 + 1, p = A320065(n+4), and codeword = 3+4=7.
+p = 3 such that 2^3 >= 4 + 3 + 1, p = A320065(n+4), and PROGword = 3+4=7.
 Positions:   1 2 3 4 5 6 7
 Data:        ? ? 1 ? 0 1 1
 bits set:  3,6,7 and 3 XOR 6 XOR 7 = 2 or 010_2 and
@@ -671,7 +671,7 @@ a(2^k) 7*(2^A324540(k+1)) NO!!!!
 a(2^k) = 0 (mod 7).
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def a(n):
@@ -716,7 +716,7 @@ The initial K call and all further recursive calls are counted in a(n).
 ### LINKS ###
 Wikipedia, <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a>
 
-### CODE ###
+### PROG ###
 ```
 (Python) 
 counter = 0
@@ -746,7 +746,7 @@ Cf. A379740.
 ### KEYWORD ###
 base
 
-## Integer encoding of the Huffman-reverse-binary of digit frequency codes from a string concatenated 0 through n-1. ##
+## Integer encoding of the Huffman-reverse-binary of digit frequency PROGs from a string concatenated 0 through n-1. ##
 
 ### DATA ###
 `0, 2, 28, 228, 4004, 64196, 1027176, 16434824, 534431368, 17103505032, 17103430188, 34206888202, 25044430919, 25044431395, 22753794595, 20463342115, 548981675858, 549180765488, 532537767216, 549180765488, 25044430919, 25044430919, 45507564723, 40926268323, 36345002643`
@@ -756,8 +756,8 @@ base
 
 ### COMMENTS ###
 ```
-The huffman resulting codes are agnostic to the order of concatenation, It could be 0..(n-1) or (n-1)..0.
-Concatenate the digits of all numbers from 0 to n-1 into a string, compute the digit frequencies, construct a Huffman code using these frequencies, reverse the binary codes for each digit (in order of increasing digit), concatenate these reversed codes, and interpret the result as a binary number.
+The huffman resulting PROGs are agnostic to the order of concatenation, It could be 0..(n-1) or (n-1)..0.
+Concatenate the digits of all numbers from 0 to n-1 into a string, compute the digit frequencies, construct a Huffman PROG using these frequencies, reverse the binary PROGs for each digit (in order of increasing digit), concatenate these reversed PROGs, and interpret the result as a binary number.
 ```
 
 ### LINKS ###
@@ -767,15 +767,15 @@ Wikipedia, <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman coding
 ```
 For n = 5, a(5) = 4004 because:
 '01234' has a the following Huffman coding: {'2':'00','3':'01','4':'10','0':'110','1':'111'},
-and the reversed and concatenated codes: '111110100100_2 = 4004.
+and the reversed and concatenated PROGs: '111110100100_2 = 4004.
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from heapq import heappush, heappop, heapify
 from collections import defaultdict
-def encode(S):
+def enPROG(S):
     if len(S) < 2: return [(s, '0') for s in S]
     h = [[w, [s, ""]] for s, w in S.items()]
     heapify(h)
@@ -789,7 +789,7 @@ def a(n):
     t = "".join([str(x) for x in range(0,n)])
     s = defaultdict(int)
     for c in t: s[c] += 1
-    return int("".join([p[1] for p in encode(s)][::-1]),2)
+    return int("".join([p[1] for p in enPROG(s)][::-1]),2)
 print([a(n) for n in range(1,26)])
 ```
 
@@ -813,7 +813,7 @@ Such a ruler has the property that the mark or notches are defined by: notch(k) 
 ### OFFSET ###
 2
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from sympy import prod, prime
@@ -844,7 +844,7 @@ Numbers congruent {0, 3, 4, 7, 11, 12, 15} mod 16.
 Also numbers that can be written in only one way in the form (j+k)*(3k-j) for j,k>0.
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from sympy import divisors
@@ -960,7 +960,7 @@ sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutat
 Wikipedia, <a href="https://en.wikipedia.org/wiki/bitonic_sorter">bitonic sort</a>
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from sympy.combinatorics import Permutation
@@ -1027,7 +1027,7 @@ sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutat
 Wikipedia, <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 from sympy.combinatorics import Permutation
@@ -1137,7 +1137,7 @@ and:
 and 10010 in base 10 is 18
 ```
 
-### CODE ###
+### PROG ###
 ```
 (Python)
 def a(n):
@@ -1156,3 +1156,163 @@ base
 
 ### XREF ###
 Cf. A000051, A000079, A006516, A378299.
+
+
+## Lexicographic rank of the bit-reversal permutation of elements {0, 1, ..., 2^n - 1}. ##
+
+### DATA ###
+`0, 0, 2, 2354, 633303178034, 4047127158317611833545968021642034, 983558374988244870572855228078991302744595248608705829863205162000316468367968661642034`
+
+
+### COMMENTS ###
+Also the inversion count of the bit reversal permutation of elements {0, 1, ..., 2^n - 1} is A100575(n).
+
+### EXAMPLE ###
+```
+| n | 2^n | Sequence                                              | rank
++---+-----+-------------------------------------------------------+--------------
+| 0 | 1   | 0                                                     | 0
+| 1 | 2   | 0, 1                                                  | 0
+| 2 | 4   | 0, 2, 1, 3                                            | 2
+| 3 | 8   | 0, 4, 2, 6, 1, 5, 3, 7                                | 2354
+| 4 | 16  | 0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15  | 633303178034
+```
+
+### LINK ###
+Wikipedia, <a href="https://en.m.wikipedia.org/wiki/Bit-reversal_permutation">Bit-reversal_permutation</a>.
+
+### PROG ###
+```
+(Python)
+from sympy.combinatorics import Permutation
+def a(n):
+    p = [0]
+    for _ in range(n):
+        p = [x << 1 for x in p] + [(x << 1) + 1 for x in p]
+    return Permutation(p).rank()
+print([a(n) for n in range(0,8)])
+```
+
+### XREF ###
+Cf. A000079, A100575.
+
+## GCR(0,2) RLL encoding of n. ##
+
+### DATA ###
+`25, 27, 18, 19, 889, 891, 882, 883, 601, 603, 594, 595, 633, 635, 626, 627, 28473, 28475, 28466, 28467, 28537, 28539, 28530, 28531, 28249, 28251, 28242, 28243, 28281, 28283, 28274, 28275, 19257, 19259, 19250, 19251, 19321, 19323, 19314, 19315, 19033, 19035, 19026, 19027, 19065, 19067, 19058, 19059, 20281, 20283, 20274, 20275, 20345, 20347, 20338, 20339, 20057, 20059, 20050, 20051, 20089, 20091, 20082`
+
+### COMMENTS ###
+GCR(0,2) RLL encoding of n but with leading zeros ignored.
+
+### OFFSET ###
+0
+
+### FORMULA ###
+```
+a(n) = a(n-1) + 2 for n = 1 mod 4.
+a(n) = a(n-1) + 1 for n = 3 mod 4.
+```
+
+### LINK ###
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Run-length_limited">Run-length limited</a>
+
+### PROG ###
+```
+(Python)
+def tobase4(n):
+    if n == 0: return [0]
+    d = []
+    while n > 0:
+        d.append(n & 3)
+        n >>= 2
+    return d[::-1]
+def a(n):
+    if n & 1:
+        if n & 3 == 1: return a(n-1) + 2
+        if n & 3 == 3: return a(n-1) + 1
+    enc_map = {
+         '0': '11001',
+         '1': '11011',
+         '2': '10010',
+         '3': '10011',
+        '10': '11101',
+        '11': '10101',
+        '12': '10110',
+        '13': '10111',
+        '20': '11010',
+        '21': '01001',
+        '22': '01010',
+        '23': '01011',
+        '30': '11110',
+        '31': '01101',
+        '32': '01110',
+        '33': '01111'
+    }
+    return int("".join(enc_map[str(b)] for b in tobase4(n)),2)
+print([a(n) for n in range(0, 63)])
+```
+
+### KEYWORD ###
+base, easy
+
+## Determinant for a Matrix M where M[i,j] = i*j for n >= i > j >= 1 and 1 for 1 <= i < j <= n. ##
+
+### DATA ###
+`1, 2, 15, 220, 5225, 181830, 8697535, 546702200, 43667838225, 4318264002250, 517759853869775, 73992590025753300, 12424589075157741625, 2421839132034593636750, 542318977066317932229375, 138255184553439984856342000, 39808852202356125639572974625, 12855917564172654691838566511250`
+
+### OFFSET ###
+1
+
+### COMMENTS ###
+Conversely the determinant for a Matrix M where M[i,j] = i*j for n >= i < j >= 1 and 1 for 1 <= i > j <= n is A130031.
+
+### PROG ###
+```
+(Python)
+from sympy import Matrix
+def a(n):
+  M=[]
+  for i in range(1,n+1):
+    row = []
+    for j in range(1, i + 1):
+      row.append(i*j)
+    for j in range(i+1, n+1):
+      row.append(1)
+    M.append(row)
+  return Matrix(M).det()
+print([a(n) for n in range(1,19)])
+```
+
+### XREF ###
+Cf. A130031.
+
+## a(n) is the binary representation of all partitions of n concatenated together and then converted back to an integer. ##
+
+### DATA ### 
+`1, 14, 247, 257724, 1065025357, 35885265650137438, 38609324441197878878632815, 2784857543866383669141335397168626591038200, 3289398245348065727050918124067161877654368252646454686822432025, 34167438679741495089595242316096683785231545331043085651352870101508863522845099586771564396397882`
+
+### OFFSET ### 
+1
+
+### PROG ###
+```
+(Python)
+def partitions(n):
+    s = [(n, n, [])]
+    while s:
+        r, m, c = s.pop()
+        if r == 0:
+            yield c
+            continue
+        for i in range(min(r, m), 0, -1):
+            s.append((r - i, i, c + [i]))
+def a(n):
+    tmp = ""
+    for p in partitions(n):
+        tmp += "".join([bin(x)[2:] for x in p])
+    return int(tmp, 2)
+print([a(n) for n in range(1,11)])
+```
+
+### KEYWORD ###
+base
