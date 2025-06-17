@@ -44,10 +44,8 @@ def a(n):
 1
 
 ### LINKS ###
-```
 Eric Weisstein's World of Mathematics, <a href="https://mathworld.wolfram.com/HadamardMatrix.html">Hadamard Matrix</a>.
 Wikipedia, <a href="https://en.m.wikipedia.org/wiki/Hadamard_matrix">Hadamard Matrix</a>.
-```
 
 ### XREF ###
 Cf. A003432.
@@ -983,12 +981,10 @@ The lexicographic rank of a permutation of n elements is its position in the ord
 ```
 
 ### LINKS ###
-```
 geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters">Lexicographic rank of a String</a>
 Sergey Slotin, <a href="https://algorithmica.org/en/eytzinger">Eytzinger binary search</a>
 sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutations.html#sympy.combinatorics.permutations.Permutation.rank">Permutation rank</a>
 Wikipedia, <a href="https://en.wikipedia.org/wiki/bitonic_sorter">bitonic sort</a>
-```
 
 ### PROG ###
 ```
@@ -1052,12 +1048,10 @@ The lexicographic rank of a permutation of n elements is its position in the ord
 ```
 
 ### LINKS ###
-```
 geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters">Lexicographic rank of a String</a>
 Sergey Slotin, <a href="https://algorithmica.org/en/eytzinger">Eytzinger binary search</a>
 sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutations.html#sympy.combinatorics.permutations.Permutation.rank">Permutation rank</a>
 Wikipedia, <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>
-```
 
 ### PROG ###
 ```
