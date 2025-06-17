@@ -1417,7 +1417,7 @@ In the original version of the optimal file merge pattern the cost is calculated
 1
 
 ### LINK ###
-geeksforgetks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/"">Optimal merge patterns</a>.
+geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/">Optimal merge patterns</a>
 
 ### EXAMPLE ###
 ```
@@ -1467,7 +1467,7 @@ a(n) is divisible by n!.
 1
 
 ### LINK ###
-geeksforgettks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/"">Optimal merge patterns</a>
+geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/">Optimal merge patterns</a>
 
 ### EXAMPLE ###
 ```
