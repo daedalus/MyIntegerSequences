@@ -746,3 +746,413 @@ Cf. A379740.
 ### KEYWORD ###
 base
 
+## Integer encoding of the Huffman-reverse-binary of digit frequency codes from a string concatenated 0 through n-1. ##
+
+### DATA ###
+`0, 2, 28, 228, 4004, 64196, 1027176, 16434824, 534431368, 17103505032, 17103430188, 34206888202, 25044430919, 25044431395, 22753794595, 20463342115, 548981675858, 549180765488, 532537767216, 549180765488, 25044430919, 25044430919, 45507564723, 40926268323, 36345002643`
+
+### OFFSET ###
+1
+
+### COMMENTS ###
+```
+The huffman resulting codes are agnostic to the order of concatenation, It could be 0..(n-1) or (n-1)..0.
+Concatenate the digits of all numbers from 0 to n-1 into a string, compute the digit frequencies, construct a Huffman code using these frequencies, reverse the binary codes for each digit (in order of increasing digit), concatenate these reversed codes, and interpret the result as a binary number.
+```
+
+### LINKS ###
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman coding</a>
+
+### EXAMPLE ###
+```
+For n = 5, a(5) = 4004 because:
+'01234' has a the following Huffman coding: {'2':'00','3':'01','4':'10','0':'110','1':'111'},
+and the reversed and concatenated codes: '111110100100_2 = 4004.
+```
+
+### CODE ###
+```
+(Python)
+from heapq import heappush, heappop, heapify
+from collections import defaultdict
+def encode(S):
+    if len(S) < 2: return [(s, '0') for s in S]
+    h = [[w, [s, ""]] for s, w in S.items()]
+    heapify(h)
+    while len(h) > 1:
+        lo, hi = heappop(h), heappop(h)
+        for p in lo[1:]: p[1] = '0' + p[1]
+        for p in hi[1:]: p[1] = '1' + p[1]
+        heappush(h, [lo[0] + hi[0]] + lo[1:] + hi[1:])
+    return sorted(heappop(h)[1:], key=lambda p: (len(p[-1]), p))
+def a(n):
+    t = "".join([str(x) for x in range(0,n)])
+    s = defaultdict(int)
+    for c in t: s[c] += 1
+    return int("".join([p[1] for p in encode(s)][::-1]),2)
+print([a(n) for n in range(1,26)])
+```
+
+### KEYWORDS ###
+base
+
+## Partial products of A217793. ##
+
+### DATA ###
+`91, 368016, 7704998400, 154254553560616860000, 81099490326469519642214400, 123904409109840398901842327944396800000, 312980442261030492019371810265757601600000000, 7086288143652192493789225352443309285162175220940800000000, 14310712231229003211358115874216631351811959497046688833146971817246720000000000`
+
+### COMMENTS ###
+```
+In October of 1941 Paul Erdős and Pál Turán found that a Golomb ruler could be constructed for every odd prime p.
+Such a ruler has the property that the mark or notches are defined by: notch(k) = 2pk + (k^2 mod p) for k in {0..p-1}, with p=A000040(n).
+```
+
+### FORMULA ###
+`a(n) = Product_{k=1..p-1} (2*k*p + (k^2 mod p)), where p is the n-th prime.`
+
+### OFFSET ###
+2
+
+### CODE ###
+```
+(Python)
+from sympy import prod, prime
+def a(n):
+  p = prime(n)
+  return prod(2*p*k + pow(k,2,p) for k in range(1, p))
+print([a(n) for n in range(2, 11)])
+```
+
+### XREF ###
+Cf. A000040, A217793, A380790.
+
+## Numbers that can be written in only one way in the form (j+2k)^2-(j+k)^2-j^2 with j,k>0. ##
+
+### DATA ###
+3, 4, 7, 11, 12, 16, 19, 20, 23, 28, 31, 43, 44, 47, 48, 52, 59, 67, 68, 71, 76, 79, 80, 83, 92, 103, 107, 112, 116, 124, 127, 131, 139, 148, 151, 163, 164, 167, 172, 176, 179, 188, 191, 199, 208, 211, 212, 223, 227, 236, 239, 244, 251, 263, 268, 271, 272, 283
+
+### OFFSET ###
+1
+
+### LINK ###
+Project Euler, <a href="https://projecteuler.net/problem=135">Problem 135: Same Differences</a>.
+
+### COMMENTS ###
+```
+These numbers have a pair of divisors p,q that sum to a multiple of 4.
+Numbers congruent {0, 3, 4, 7, 11, 12, 15} mod 16.
+Also numbers that can be written in only one way in the form (j+k)*(3k-j) for j,k>0.
+```
+
+### CODE ###
+```
+(Python)
+from sympy import divisors
+def isok(n):
+  s = 0
+  for d in divisors(n):
+    t = n // d + d
+    if ((q:=t >> 2) << 2) == t and q < d:
+      s += 1
+  return s == 1
+print([n for n in range(1, 284) if isok(n)])
+```
+
+### XREF ###
+Cf. A364168, A383252.
+
+
+## Numbers that can be written in the form (j+2k)^2-(j+k)^2-j^2 with j,k>0. ##
+
+### DATA ###
+`3, 4, 7, 11, 12, 15, 16, 19, 20, 23, 27, 28, 31, 32, 35, 36, 39, 43, 44, 47, 48, 51, 52, 55, 59, 60, 63, 64, 67, 68, 71, 75, 76, 79, 80, 83, 84, 87, 91, 92, 95, 96, 99, 100, 103, 107, 108, 111, 112, 115, 116, 119, 123, 124, 127, 128, 131, 132, 135, 139, 140`
+
+### OFFSET ###
+1
+
+### LINK ###
+Project Euler, <a href="https://projecteuler.net/problem=135">Problem 135: Same Differences</a>.
+
+### COMMENTS ###
+```
+These numbers have a pair of divisors p,q that sum to a multiple of 4.
+Numbers congruent {0, 3, 4, 7, 11, 12, 15} mod 16.
+Also numbers that can be written in the form (j+k)*(3k-j) for j,k>0.
+```
+
+### PROG ###
+```
+(Python)
+from sympy import divisors
+def isok(n):
+  D = divisors(n)
+  L = len(D)
+  for i in range((L >> 1) + 1):
+    p,q = D[i], D[L-i-1]
+    if ((p+q) & 3 == 0) and (p <= q):
+      return True
+  return False
+print([n for n in range(1,141) if isok(n)])
+```
+
+### XREF ###
+Cf. A364168, A383252.
+
+
+## a(n) is the minimum bucket size in a bucket sort algorithm with input {0, 1, ..., n-1} and floor(sqrt(n)) buckets. ##
+
+
+### DATA ###
+`1, 2, 3, 2, 2, 3, 3, 4, 3, 2, 3, 4, 3, 4, 5, 4, 2, 3, 4, 5, 3, 4, 5, 6, 5, 2, 3, 4, 5, 6, 3, 4, 5, 6, 7, 6, 2, 3, 4, 5, 6, 7, 3, 4, 5, 6, 7, 8, 7, 2, 3, 4, 5, 6, 7, 8, 3, 4, 5, 6, 7, 8, 9, 8, 2, 3, 4, 5, 6, 7, 8, 9, 3, 4, 5, 6, 7, 8, 9, 10, 9, 2, 3, 4`
+
+### COMMENTS ###
+The maximum and minimum bucket size are equal when n is in A006446.
+
+### FORMULA ###
+`a(n) = min(floor((n-1)/sqrt(n))+1, n mod (floor((n-1)/sqrt(n))+1)).`
+
+### OFFSET ###
+1
+
+### EXAMPLE ###
+```
+For n = 10 a(10) = 4 because:
+Input array: [0,1,2,3,4,5,6,7,8,9] and floor(sqrt(10)) = 3.
+Resulting 3 buckets of [0, 1, 2, 3], [4, 5, 6, 7], [8, 9] and the length of the buckets [4,4,2].
+The minimum bucket size is 2.
+```
+
+### PROG ###
+```
+(Python)
+from sympy.core.intfunc import isqrt
+def a(n):
+    bc = isqrt(n)
+    bs = ((n-1) // bc) + 1
+    fb,r = divmod(n,bs)
+    return min(bs, r) if r > 0 else bs
+print([a(n) for n in range(1,85)])
+```
+
+### XREF ###
+Cf. A000079, A000196, A006446.
+
+## The lexicographic rank of the permutation obtained by recording the swaps needed to sort the Eytzinger permutation of [0, 1, ..., n-1] with the bitonic sorter algorithm. ##
+
+### DATA ###
+`1, 20, 37610, 20246977580570, 258952989957427698229458143957804570, 125887757413908728356528535566203146374133193857422387130710461384133774303059413717804570, 384108221355416548242103320084870428383288373093396696247459149225011268451060632674249034983367221167680047201563521138868562742195457949673151148273338742934440997616360245085791817113232421743299551059413717804570`
+
+### OFFSET ###
+1
+
+
+### COMMENTS ###
+```
+The Eytzinger array layout (A375825) arranges elements so that a binary search can be performed starting at element k=1 and at a given k step to 2*k or 2*k+1 according as the target is smaller or larger than the element at k.
+The lexicographic rank of a permutation of n elements is its position in the ordered list of all possible permutations of n elements, and here taking the first permutation as rank 0.
+```
+
+### LINKS ###
+```
+geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters">Lexicographic rank of a String</a>
+Sergey Slotin, <a href="https://algorithmica.org/en/eytzinger">Eytzinger binary search</a>
+sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutations.html#sympy.combinatorics.permutations.Permutation.rank">Permutation rank</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/bitonic_sorter">bitonic sort</a>
+```
+
+### CODE ###
+```
+(Python)
+from sympy.combinatorics import Permutation
+def s(arr):
+    n = len(arr)
+    R = list(range(n))
+    k = 2
+    while k <= n:
+        j = k >> 1
+        while j > 0:
+            for i in range(n):
+                if i & j == 0:
+                    l = i ^ j
+                #if l > i:
+                    if ((i & k) == 0 and arr[i] > arr[l]) or ((i & k) != 0 and arr[i] < arr[l]):
+                        arr[i], arr[l] = arr[l], arr[i]
+                        R[i], R[l] = R[l], R[i]
+            j >>= 1
+        k <<= 1
+    return R
+def eytzinger(t, k=1, i=0):
+    if (k < len(t)):
+        i = eytzinger(t, k * 2, i)
+        t[k] = i
+        i += 1
+        i = eytzinger(t, k * 2 + 1, i)
+    return i
+def a(n):
+    def eytzinger(t, k=1, i=0):
+        if (k < len(t)):
+            i = eytzinger(t, k * 2, i)
+            t[k] = i
+            i += 1
+            i = eytzinger(t, k * 2 + 1, i)
+        return i
+    t = [0] * ((1 << n) + 1 )
+    eytzinger(t)
+    return Permutation(s(t[1:])).rank()
+print([a(n) for n in range(1,8)])
+```
+
+### XREF ###
+Cf. A030298, A369802, A370006, A375825, A368783.
+
+## The lexicographic rank of the permutation obtained by recording the swaps needed to sort the Eytzinger permutation of [0, 1, ..., n-1] with the Bubble sort algorithm. ##
+
+### DATA ###
+`0, 1, 2, 20, 82, 397, 2330, 37610, 301850, 2692730, 26741138, 292548740, 3495111922, 45271195597, 631862060570, 20246977580570, 324237678994970, 5500423810911770, 98823436151007770, 1874553112933484570, 37436027019862950170, 785121450483596287130, 17252158693640677392410, 396372452178749756086250`
+
+### OFFSET ###
+1
+
+### COMMENTS ###
+```
+The Eytzinger array layout (A375825) arranges elements so that a binary search can be performed starting at element k=1 and at a given k step to 2*k or 2*k+1 according as the target is smaller or larger than the element at k.
+The lexicographic rank of a permutation of n elements is its position in the ordered list of all possible permutations of n elements, and here taking the first permutation as rank 0.
+```
+
+### LINKS ###
+```
+geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters">Lexicographic rank of a String</a>
+Sergey Slotin, <a href="https://algorithmica.org/en/eytzinger">Eytzinger binary search</a>
+sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutations.html#sympy.combinatorics.permutations.Permutation.rank">Permutation rank</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>
+```
+
+### CODE ###
+```
+(Python)
+from sympy.combinatorics import Permutation
+def s(arr):
+    n = len(arr)
+    R = list(range(n))
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                R[j], R[j+1] = R[j+1], R[j]
+    return R
+def eytzinger(t, k=1, i=0):
+    if (k < len(t)):
+        i = eytzinger(t, k * 2, i)
+        t[k] = i
+        i += 1
+        i = eytzinger(t, k * 2 + 1, i)
+    return i
+def a(n):
+    t = [0] * (n+1)
+    eytzinger(t)
+    return Permutation(s(t[1:])).rank()
+print([a(n) for n in range(1,25)])
+```
+
+### XREF ###
+Cf. A030298, A369802, A370006, A375825, A368783.
+
+
+## The binary expansion of a(n) tracks where the swaps occur to sort the binary expansion of n. ##
+
+### DATA ###
+`0, 2, 0, 10, 8, 4, 0, 74, 72, 68, 64, 36, 32, 16, 0, 1098, 1096, 1092, 1088, 1060, 1056, 1040, 1024, 548, 544, 528, 512, 272, 256, 128, 0, 33866, 33864, 33860, 33856, 33828, 33824, 33808, 33792, 33316, 33312, 33296, 33280, 33040, 33024, 32896, 32768, 16932, 16928`
+
+### COMMENTS ###
+```
+Leading zeros are ommitted in the resulting encoding.
+The number of left shifts for a(n) is A000217(floor(log_2(n))+1).
+```
+
+### EXAMPLE ###
+```
+For n = 22, a(22) = 1040 because:
+22 is 10110_2 and
+ i | j | B[i] | B[j] | Encoding
+---+---+------+------+----------
+ 0 | 1 | 1    | 0    | 1
+ 0 | 2 | 0    | 1    | 0
+ 0 | 3 | 0    | 1    | 0
+ 0 | 4 | 0    | 0    | 0
+ 1 | 2 | 1    | 1    | 0
+ 1 | 3 | 1    | 1    | 0
+ 1 | 4 | 1    | 0    | 1
+ 2 | 3 | 1    | 1    | 0
+ 2 | 4 | 1    | 1    | 0
+ 3 | 4 | 1    | 1    | 0
+10110_2 sorted is 00111_2.
+And a(n) = 1000 001 00 0 = 1040.
+       i =    0   1  2 3
+```
+
+### FORMULA ###
+`a(2^k) = Sum_{j=1..k-1} 2^((j^2 + 3j - 4)/2 + 3) + 2.`
+
+### PROG ###
+```
+(Python)
+def a(n):
+    c, B, lb = 0, list(map(int, bin(n)[2:])), n.bit_length()
+    for i in range(lb):
+        for j in range(i+1, lb):
+            if B[i] > B[j]:
+                B[i],B[j] = B[j],B[i]
+                c |=1
+            c <<= 1
+    return c
+print([a(n) for n in range(1,50)])
+```
+
+### XREF ###
+Cf. A000079, A000217, A006125, A070939, A380145.
+
+### KEYWORD ###
+base
+
+## Binary left shift XOR sum of n. ##
+
+### DATA ###
+`1, 6, 5, 28, 27, 18, 21, 120, 119, 102, 105, 68, 75, 90, 85, 496, 495, 462, 465, 396, 403, 434, 429, 264, 279, 310, 297, 372, 363, 330, 341, 2016, 2015, 1950, 1953, 1820, 1827, 1890, 1885, 1560, 1575, 1638, 1625, 1764, 1755, 1690, 1701, 1040, 1071, 1134`
+
+### FORMULA ###
+```
+a(2^k+1) = a(2^k) - 1 for k>2.
+a(2^k) = A006516(k-1).
+```
+
+### EXAMPLE ###
+```
+for n = 6 a(6)= 18 because 6 in base 2 is 110
+and:
+  110
+ 110
+110
+------
+10010
+and 10010 in base 10 is 18
+```
+
+### CODE ###
+```
+(Python)
+def a(n):
+    if (n > 2) and (n - 1) & (n - 2) == 0: return a(n-1)-1
+    m = n
+    r = n
+    for i in range(0, n.bit_length()-1):
+        m <<= 1
+        r ^= m
+    return r
+print([a(n) for n in range(1, 51)])
+```
+
+### keyword ###
+base
+
+### XREF ###
+Cf. A000051, A000079, A006516, A378299.
