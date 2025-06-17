@@ -1403,3 +1403,101 @@ print([a(n) for n in range(1, 76)])
 
 ### XREF ###
 Cf. A000010, A091507.
+
+
+## a(n) is the cumulative sum of the multiplicative cost of merge in the optimal file merge pattern like algorithm applied to the list comprising 1 to n. ##
+
+### DATA ###
+`0, 2, 8, 32, 148, 784, 5244, 41160, 365196, 3634770, 39939046, 479102742, 6227559458, 87181950308, 1307698387400, 20922911172308, 355687947758520, 6402375473783654, 121645105512067786, 2432902028391283234, 51090942270685982446, 1124000728416448387006, 25852016743979951090832`
+
+### COMMENTS ###
+In the original version of the optimal file merge pattern the cost is calculated with a sum.
+
+### OFFSET ###
+1
+
+### LINK ###
+geeksforgetks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/"">Optimal merge patterns</a>.
+
+### EXAMPLE ###
+```
+For n = 5:
+Starting with f=[1,2,3,4,5]:
+len(f) | f               | t   | c
+      5 | [1, 2, 3, 4, 5] | 2   | 2
+      4 | [2, 3, 4, 5]    | 6   | 8
+      3 | [4, 5, 6]       | 20  | 28
+      2 | [6, 20]         | 120 |148
+ a(n) = 2+6+20+120 = 148
+```
+
+### PROG ###
+```
+(Python)
+import heapq
+def Omp(f):
+    c = 0
+    heapq.heapify(f)
+    while len(f) > 1:
+        a = heapq.heappop(f)
+        b = heapq.heappop(f)
+        m = a * b
+        c += m
+        heapq.heappush(f, m)
+    return c
+a = lambda n: Omp(list(range(1, n+1)))
+print([a(n) for n in range(1, 24)])
+```
+
+## a(n) is the multiplicative cost of merge in the optimal merge pattern like algorithm applied to the list comprising 1 to n. ##
+
+### DATA ###
+`1, 2, 12, 288, 28800, 6220800, 6096384000, 14046068736000, 63712967786496000, 573416710078464000000, 15264352822288711680000000, 949564860368936176189440000000, 116826863900910955628939182080000000, 28851562308968969602122820406476800000000, 12853371008645675957745716491085414400000000000`
+
+
+### COMMENTS ###
+```
+In the original optimal file merge pattern algorithm: the counter variable c accumulates a sum of each value of t, while in this algorithm is c*= t.
+Conversely when c accmuluates a sum of eatch t the resulting sequence is A328950.
+All the t numbers are congruent to 0 or 1 (mod 3) (A032766).
+a(n) is divisible by n!.
+```
+
+### OFFSET ###
+1
+
+### LINK ###
+geeksforgettks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/"">Optimal merge patterns</a>
+
+### EXAMPLE ###
+```
+ For n = 5:
+ Starting with f=[1,2,3,4,5]:
+ len(f) | f               | m   | c
+      5 | [1, 2, 3, 4, 5] | 2   | 2
+      4 | [2, 3, 4, 5]    | 6   | 12
+      3 | [4, 5, 6]       | 20  | 240
+      2 | [6, 20]         | 120 | 28800
+ a(n) = 2*6*20*120 = 28800
+```
+
+### PROG ###
+```
+(Python)
+def Omp(f):
+    c = 1
+    heapq.heapify(f) 
+    while len(f) > 1:
+        a = heapq.heappop(f)  
+        b = heapq.heappop(f)  
+        m = a * b            
+        c *= m                
+        heapq.heappush(f, m) 
+    return c
+a = lambda n: Omp(list(range(1, n+1)))
+print([a(n) for n in range(1, 16)])
+```
+
+### XREF ###
+Cf. A000120.
+
