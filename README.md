@@ -6,7 +6,6 @@ They are lincensed under the [Creative Commons Attribution Share-Alike 4.0 licen
 
 
 
-
 ## Number of distinct values of f(x,y) = x*y mod x+y for x,y in the range [1,n]. ##
 
 ### DATA ###
@@ -270,6 +269,7 @@ print([a(n) for n in range(1,74)])
 Cf. A000040, A383752.
 
 
+
 ## Apply Rule 110 as an encoding to the binary expansion of n. ##
 
 ### DATA ###
@@ -317,6 +317,7 @@ print([a(n) for n in range(1,75)])
 base
 
 
+
 ## Number of remainders n mod p equal zero, over all primes p < n. ##
 
 ### DATA ###
@@ -342,6 +343,7 @@ print([a(n) for n in range(1,88)])
 
 ### XREF ###
 Cf. A000040, A383752.
+
 
 
 ## The bit position of the bit flip to obtain the longest run of 1s in the binary expansion of n, 1-indexed and 0 if no bit flip was possible. ##
@@ -388,6 +390,9 @@ base
 ### XREF ###
 Cf. A383270.
 
+
+
+
 ## Number of distinct values of j^2-i^2 for i,j in range [1,n]. ##
 
 ### DATA ###
@@ -407,6 +412,8 @@ def a(n):
     return len(s)
 print([a(n) for n in range(1,57)])
 ```
+
+
 
 ## Number of solutions wining the Tchoukaillon game with 2n seeds and n pits. ##
 
@@ -445,6 +452,8 @@ print([a(n) for n in range(0,24)])
 ### XREF ###
 Cf. A000707, A383454.
 
+
+
 ## Number of solutions wining the Tchoukaillon game with n seeds and n^2 pits. ##
 
 ### DATA ###
@@ -478,6 +487,8 @@ print([a(n) for n in range(0,19)])
 
 ### XREF ###
 Cf. A008302, A098749.
+
+
 
 ## Concatenation of the interim digits in the Michael Damm error detecting algorithm applied to n. ##
 
@@ -526,6 +537,8 @@ Cf. A375584.
 ### KEYWORD ###
 base
 
+
+
 ## In the non-adjacent form of n, increment each digit by one then convert to base 10 from base 3. ##
 
 ### DATA ###
@@ -561,6 +574,7 @@ base
 Cf. A030190, A379015.
 
 
+
 ## Concatenation of remainders n mod p, over all primes p < n in largest prime to smallest prime order for n > 2 else 0. ##
 
 ### DATA ###
@@ -583,6 +597,8 @@ print([a(n) for n in range(3,31)])
 
 ### XREF ###
 Cf. A024934.
+
+
 
 ## Integer encoding of the Huffman-reverse-binary of digit frequency PROGs from a string concatenated 0 through n-1 in hex. ##
 
@@ -633,6 +649,8 @@ print([a(n) for n in range(1,21)])
 
 ### KEYWORDS ###
 base
+
+
 
 ## The Hamming(7,4) error-correcting PROG encoding of n. ##
 
@@ -697,6 +715,8 @@ base
 ### XREF ###
 Cf. A000079, A070939, A320065.
 
+
+
 ## Number of calls to Karatsuba's multiplication algorithm K(x,y) when recursively calculating K(Fibonacci(n),Fibonacci(n+1)) in binary digits. ##
 
 ### DATA ###
@@ -745,6 +765,8 @@ Cf. A379740.
 
 ### KEYWORD ###
 base
+
+
 
 ## Integer encoding of the Huffman-reverse-binary of digit frequency PROGs from a string concatenated 0 through n-1. ##
 
@@ -796,6 +818,8 @@ print([a(n) for n in range(1,26)])
 ### KEYWORDS ###
 base
 
+
+
 ## Partial products of A217793. ##
 
 ### DATA ###
@@ -825,6 +849,8 @@ print([a(n) for n in range(2, 11)])
 
 ### XREF ###
 Cf. A000040, A217793, A380790.
+
+
 
 ## Numbers that can be written in only one way in the form (j+2k)^2-(j+k)^2-j^2 with j,k>0. ##
 
@@ -860,6 +886,7 @@ print([n for n in range(1, 284) if isok(n)])
 
 ### XREF ###
 Cf. A364168, A383252.
+
 
 
 ## Numbers that can be written in the form (j+2k)^2-(j+k)^2-j^2 with j,k>0. ##
@@ -899,8 +926,8 @@ print([n for n in range(1,141) if isok(n)])
 Cf. A364168, A383252.
 
 
-## a(n) is the minimum bucket size in a bucket sort algorithm with input {0, 1, ..., n-1} and floor(sqrt(n)) buckets. ##
 
+## a(n) is the minimum bucket size in a bucket sort algorithm with input {0, 1, ..., n-1} and floor(sqrt(n)) buckets. ##
 
 ### DATA ###
 `1, 2, 3, 2, 2, 3, 3, 4, 3, 2, 3, 4, 3, 4, 5, 4, 2, 3, 4, 5, 3, 4, 5, 6, 5, 2, 3, 4, 5, 6, 3, 4, 5, 6, 7, 6, 2, 3, 4, 5, 6, 7, 3, 4, 5, 6, 7, 8, 7, 2, 3, 4, 5, 6, 7, 8, 3, 4, 5, 6, 7, 8, 9, 8, 2, 3, 4, 5, 6, 7, 8, 9, 3, 4, 5, 6, 7, 8, 9, 10, 9, 2, 3, 4`
@@ -937,6 +964,8 @@ print([a(n) for n in range(1,85)])
 ### XREF ###
 Cf. A000079, A000196, A006446.
 
+
+
 ## The lexicographic rank of the permutation obtained by recording the swaps needed to sort the Eytzinger permutation of [0, 1, ..., n-1] with the bitonic sorter algorithm. ##
 
 ### DATA ###
@@ -944,7 +973,6 @@ Cf. A000079, A000196, A006446.
 
 ### OFFSET ###
 1
-
 
 ### COMMENTS ###
 ```
@@ -1005,6 +1033,8 @@ print([a(n) for n in range(1,8)])
 ### XREF ###
 Cf. A030298, A369802, A370006, A375825, A368783.
 
+
+
 ## The lexicographic rank of the permutation obtained by recording the swaps needed to sort the Eytzinger permutation of [0, 1, ..., n-1] with the Bubble sort algorithm. ##
 
 ### DATA ###
@@ -1056,6 +1086,7 @@ print([a(n) for n in range(1,25)])
 
 ### XREF ###
 Cf. A030298, A369802, A370006, A375825, A368783.
+
 
 
 ## The binary expansion of a(n) tracks where the swaps occur to sort the binary expansion of n. ##
@@ -1114,6 +1145,8 @@ Cf. A000079, A000217, A006125, A070939, A380145.
 ### KEYWORD ###
 base
 
+
+
 ## Binary left shift XOR sum of n. ##
 
 ### DATA ###
@@ -1158,11 +1191,11 @@ base
 Cf. A000051, A000079, A006516, A378299.
 
 
+
 ## Lexicographic rank of the bit-reversal permutation of elements {0, 1, ..., 2^n - 1}. ##
 
 ### DATA ###
 `0, 0, 2, 2354, 633303178034, 4047127158317611833545968021642034, 983558374988244870572855228078991302744595248608705829863205162000316468367968661642034`
-
 
 ### COMMENTS ###
 Also the inversion count of the bit reversal permutation of elements {0, 1, ..., 2^n - 1} is A100575(n).
@@ -1255,6 +1288,8 @@ print([a(n) for n in range(0, 63)])
 ### KEYWORD ###
 base, easy
 
+
+
 ## Determinant for a Matrix M where M[i,j] = i*j for n >= i > j >= 1 and 1 for 1 <= i < j <= n. ##
 
 ### DATA ###
@@ -1286,6 +1321,8 @@ print([a(n) for n in range(1,19)])
 ### XREF ###
 Cf. A130031.
 
+
+
 ## a(n) is the binary representation of all partitions of n concatenated together and then converted back to an integer. ##
 
 ### DATA ### 
@@ -1316,6 +1353,7 @@ print([a(n) for n in range(1,11)])
 
 ### KEYWORD ###
 base
+
 
 
 ## a(0) = 0 and a(n) is binomial(n, a(n - 1)) + 1 ##
@@ -1351,6 +1389,7 @@ print([a(n) for n in range(0,76)])
 Cf. A000142, A000225, A016825, A019442, A188135, A016813.
 
 
+
 ## a(n) is the product of antidivisors of the totient of n. ##
 
 ### DATA ###
@@ -1381,6 +1420,7 @@ easy
 Cf. A000010, A091507.
 
 
+
 ## Product of the totients of the antidivisors of n. ##
  
 ### DATA ###
@@ -1403,6 +1443,7 @@ print([a(n) for n in range(1, 76)])
 
 ### XREF ###
 Cf. A000010, A091507.
+
 
 
 ## a(n) is the cumulative sum of the multiplicative cost of merge in the optimal file merge pattern like algorithm applied to the list comprising 1 to n. ##
@@ -1449,11 +1490,12 @@ a = lambda n: Omp(list(range(1, n+1)))
 print([a(n) for n in range(1, 24)])
 ```
 
+
+
 ## a(n) is the multiplicative cost of merge in the optimal merge pattern like algorithm applied to the list comprising 1 to n. ##
 
 ### DATA ###
 `1, 2, 12, 288, 28800, 6220800, 6096384000, 14046068736000, 63712967786496000, 573416710078464000000, 15264352822288711680000000, 949564860368936176189440000000, 116826863900910955628939182080000000, 28851562308968969602122820406476800000000, 12853371008645675957745716491085414400000000000`
-
 
 ### COMMENTS ###
 ```
