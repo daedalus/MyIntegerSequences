@@ -7,6 +7,49 @@ They are lincensed under the [Creative Commons Attribution Share-Alike 4.0 licen
 For those the they are already, there is this [repo](https://github.com/daedalus/MyOEIS).
 
 
+## Number of solutions that satisfy x^2 + y^2 + w^2 + z^2 = xywz for x,y,w,z in [1,n]. ##
+
+### DATA ###
+`0, 1, 1, 1, 1, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17`
+
+### LINKS ###
+Numberphile, <a href="https://www.youtube.com/watch?v=a7BVL1MOCl4">A simple equation that behaves strangely</a>.
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Vieta_jumping">Vieta jumping</a>.
+
+### FORMULA ###
+`a(f(n)+c) = g(n), for c < f(n+1) with f=2*A0752762 and g remaining to be defined.`
+
+### PROG ###
+```
+(Python)
+from itertools import combinations_with_replacement
+from math import factorial
+from collections import Counter
+def a(n):
+    if n == 1: return 0
+    if n < 6: return 1
+    c,f4 = 0, 4*3*2
+    F={}
+    for x, y, w, z in combinations_with_replacement(range(1, n+1), 4):
+        if x**2 + y**2 + w**2 + z**2 == x*y*w*z:
+            m = Counter([x, y, w, z])  
+            perms = f4
+            for v in m.values():
+                if v in F:
+                    perms //= F[v]
+                else:
+                    F[v] = factorial(v)
+                    perms //= factorial(v)
+            c += perms
+    return c
+print([a(n) for n in range(1,71)])
+```
+
+### XREF ###
+Cf. A075276.
+
+
+
 ## Number of distinct values of f(x,y) = x*y mod x+y for x,y in the range [1,n]. ##
 
 ### DATA ###
