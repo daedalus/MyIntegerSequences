@@ -7,6 +7,38 @@ They are lincensed under the [Creative Commons Attribution Share-Alike 4.0 licen
 For those the they are already, there is this [repo](https://github.com/daedalus/MyOEIS).
 
 
+## a(n) is the sum of pairs x+y such that (x^2+y^2)/(xy+1) is square for x,y in [0, n-1]. ##
+
+### DATA ###
+`0, 4, 8, 14, 22, 32, 44, 58, 94, 112, 132, 154, 178, 204, 232, 262, 294, 328, 364, 402, 442, 484, 528, 574, 622, 672, 724, 838, 894, 952, 1088, 1150, 1214, 1280, 1348, 1418, 1490, 1564, 1640, 1718, 1798, 1880, 1964, 2050, 2138, 2228, 2320, 2414, 2510, 2608, 2708`
+
+### COMMENT ###
+The function is symmetric in x,y because (x,y) = (y,x).
+
+### FORMULA ###
+`a(n) = Sum_{x=0..n-1} Sum_{y=0..n-1} x+y iif (x^2 + y^2)/(xy+1) is square.`
+
+### LINKS ###
+Numberphile, <a href="https://www.youtube.com/watch?v=NcaYEaVTA4g">The notorious question six (solved by induction)</a>.
+
+### PROG ###
+```
+(Python)
+from sympy.ntheory.primetest import is_square
+def b(n):
+  if n == 1: return 0
+  c = 0
+  for x in range(1,n):
+    x2 = x*x
+    for y in range(x+1,n):
+      q,r = divmod(x2 + y*y, x*y + 1) 
+      if r == 0 and is_square(q):
+        c += (x+y)
+  return c*2+2+n*(n-1)
+print([a(n) for n in range(1,52)])
+```
+
+
 ## Number of solutions that satisfy x^2 + y^2 + w^2 + z^2 = xywz for x,y,w,z in [1,n]. ##
 
 ### DATA ###
