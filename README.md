@@ -1,9 +1,10 @@
 # My integer sequences. #
 
-These are my integer sequences that at the day of this publishing are not in the OEIS database.
+These are my integer sequences that at the day of this publishing are not in the [OEIS](https://oeis.org) database.
 
 They are lincensed under the [Creative Commons Attribution Share-Alike 4.0 license (CC-BY-SA-4.0).](https://creativecommons.org/licenses/by-sa/4.0/)
 
+For those the they are already, there is this [repo](https://github.com/daedalus/MyOEIS).
 
 
 ## Number of distinct values of f(x,y) = x*y mod x+y for x,y in the range [1,n]. ##
