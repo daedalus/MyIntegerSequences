@@ -25,7 +25,7 @@ Numberphile, <a href="https://www.youtube.com/watch?v=NcaYEaVTA4g">The notorious
 ```
 (Python)
 from sympy.ntheory.primetest import is_square
-def b(n):
+def a(n):
   if n == 1: return 0
   c = 0
   for x in range(1,n):
