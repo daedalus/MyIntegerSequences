@@ -6,6 +6,7 @@ They are lincensed under the [Creative Commons Attribution Share-Alike 4.0 licen
 
 For those the they are already, there is this [repo](https://github.com/daedalus/MyOEIS).
 
+For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
 ## a(n) is the sum of pairs x+y such that (x^2+y^2)/(xy+1) is square for x,y in [0, n-1]. ##
 
