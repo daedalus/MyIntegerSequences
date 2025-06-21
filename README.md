@@ -1616,3 +1616,15 @@ print([a(n) for n in range(1, 16)])
 ### XREF ###
 Cf. A000120.
 
+
+## How to cite
+
+```
+@misc{clavijo2025myintegersequences,
+  author       = {Darío Clavijo},
+  title        = {MyIntegerSequences: Personal collection of integer sequences},
+  year         = {2025},
+  howpublished = {\url{https://github.com/daedalus/MyIntegerSequences}},
+  note         = {GitHub repository},
+}
+```
