@@ -59,7 +59,7 @@ Cf. A000203, A002127, A002128.
 `0, 0, 0, 18, 0, 120, 0, 270, 192, 504, 0, 1680, 0, 1296, 1536, 2790, 0, 5160, 0, 6804, 3840, 4680, 0, 16800, 2880, 7560, 7680, 17280, 0, 30960, 0, 25110, 13440, 16416, 13824, 59490, 0, 22680, 21504, 66780, 0, 78720, 0, 61776, 59136, 39600, 0, 148800, 16128, 86184`
 
 ### COMMENTS ###
-M(j,n) is defined as the sum over all partitions of n into exactly j distinct parts, each such partition contributing the product of multiplicities of the parts.
+M(j,n) is the MacMahon plane partition function and is defined as the sum over all partitions of n into exactly j distinct parts, each such partition contributing the product of multiplicities of the parts.
 
 ### FORMULA ###
 ```
@@ -74,6 +74,7 @@ a(n) = A279019(n-4)*M(1,n) - 8*M(2,n).
 
 ### LINK ###
 William Craig, Jan-Willem van Ittersum, Ken Ono, <a href="https://arxiv.org/abs/2405.06451">Integer partitions detect the primes</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>
 
 ### PROG ###
 ```
@@ -104,7 +105,7 @@ Cf. A000203, A002127, A002128, A279019.
 `0, 0, 0, 108, 0, 1260, 0, 4860, 2592, 14364, 0, 51660, 0, 75816, 43776, 169020, 0, 367380, 0, 551124, 213120, 723060, 0, 1745100, 108000, 1666980, 725760, 2854440, 0, 5059800, 0, 5525820, 1955520, 6377616, 808704, 13324320, 0, 11124540, 4483584, 18193140, 0`
 
 ### COMMENTS ###
-M(j,n) is defined as the sum over all partitions of n into exactly j distinct parts, each such partition contributing the product of multiplicities of the parts.
+M(j,n) is the MacMahon plane partition function and is defined as the sum over all partitions of n into exactly j distinct parts, each such partition contributing the product of multiplicities of the parts.
 
 ### FORMULA ###
 ```
@@ -119,6 +120,7 @@ M(3,n) = A002128(n) for n>= 6 else 0.
 
 ### LINK ###
 William Craig, Jan-Willem van Ittersum, Ken Ono, <a href="https://arxiv.org/abs/2405.06451">Integer partitions detect the primes</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>
 
 ### PROG ###
 ```
