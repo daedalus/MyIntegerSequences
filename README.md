@@ -364,15 +364,15 @@ Cf. A000010, A008330, A384763.
 
 
 
-## The integer representation of the reversal of the Reed-Muller PROG of size 2^(n+1)-1. ##
+## The integer representation of the reversal of the Reed-Muller code of size 2^(n+1)-1. ##
 
 ### DATA ###
 `1, 14, 3820, 4006538480, 1127740325610919595933440, 5855562549912621432400532814181205703033719227392014090240, 678027821314169029533837277126308108243817843666549070645730770517828410950207716447345344965940166970542012394294840655177503788236800`
 
 ### COMMENTS ###
 ```
-Reed-Muller PROGs are created such that H(0) is 1 and H(n) is a concatenation equal to: 2^(n-1) zeros plus 2^(n-1) ones plus two copies of H(n-1).
-Typically, these PROGs contain leading zeros. To avoid ignoring them and loss of general information, we reverse the PROG, since they always end in ones.
+Reed-Muller codes are created such that H(0) is 1 and H(n) is a concatenation equal to: 2^(n-1) zeros plus 2^(n-1) ones plus two copies of H(n-1).
+Typically, these codes contain leading zeros. To avoid ignoring them and loss of general information, we reverse the code, since they always end in ones.
 A self-similar structure can easily be observed in the binary expansion of a(n).
 The bitsize of a(n) is n*2^(n-1).
 ```
@@ -395,7 +395,7 @@ The Reed-muller PROGs are:
 ```
 
 ### LINK ###
-Youtube, <a href="https://www.youtube.com/watch?v=CtOCqKpti7s">Reed-Muller PROG (64 Shades of Grey pt2) - Computerphile</a>
+Youtube, <a href="https://www.youtube.com/watch?v=CtOCqKpti7s">Reed-Muller code (64 Shades of Grey pt2) - Computerphile</a>
 
 ### PROG ###
 ```
