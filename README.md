@@ -8,6 +8,30 @@ For those sequences already in the database there is alread this [repo](https://
 
 For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
+## Product of the totients of the antidivisors of n. ##
+
+### DATA ###
+`1, 1, 1, 2, 2, 2, 8, 8, 2, 24, 12, 16, 48, 24, 8, 20, 480, 192, 24, 96, 12, 768, 384, 48, 768, 64, 480, 5760, 36, 64, 864, 41472, 960, 88, 1056, 32, 1280, 153600, 1440, 1728, 216, 6144, 3584, 224, 27648, 8640, 4320, 1152, 14400, 38400, 32, 442368, 110592, 96, 2880, 576, 3168, 608256, 331776, 491520, 800, 12800, 69120, 84, 4032, 17280, 17915904, 663552, 44, 17664, 11040, 1720320, 677376, 12096, 1280`
+
+### OFFSET ###
+1
+
+### FORMULA ###
+a(n) = Product_{d in antidivisors(n)} totient(d).
+
+### PROG ###
+```
+(Python)
+from sympy.ntheory.factor_ import antidivisors
+from sympy import prod, totient
+a = lambda n: prod(totient(d) for d in antidivisors(n))
+print([a(n) for n in range(1, 76)])
+```
+
+### XREF ###
+Cf. A000010, A091507.
+
+
 ## Symmetric difference of sets: i*j and i+j for 1 <= i, j <= n. ##
 
 ### DATA ###
