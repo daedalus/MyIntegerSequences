@@ -8,6 +8,51 @@ For those the they are already, there is this [repo](https://github.com/daedalus
 
 For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
+## a(n) = (n^2-3n+2)*M(1,n) - 8*M(2,n). ##
+
+### DATA ###
+`0, 0, 0, 18, 0, 120, 0, 270, 192, 504, 0, 1680, 0, 1296, 1536, 2790, 0, 5160, 0, 6804, 3840, 4680, 0, 16800, 2880, 7560, 7680, 17280, 0, 30960, 0, 25110, 13440, 16416, 13824, 59490, 0, 22680, 21504, 66780, 0, 78720, 0, 61776, 59136, 39600, 0, 148800, 16128, 86184`
+
+### COMMENTS ###
+M(j,n) is defined as the sum over all partitions of n into exactly j distinct parts, each such partition contributing the product of multiplicities of the parts.
+
+### FORMULA ###
+```
+a(n) = 0 iff n is prime.
+M(1,n) = A000203(n)
+M(2,n) = A002127(n) for n>= 3 else 0.
+a(n) = A279019(n-4)*M(1,n) - 8*M(2,n).
+```
+
+### OFFSET ###
+1
+
+### LINK ###
+William Craig, Jan-Willem van Ittersum, Ken Ono, <a href="https://arxiv.org/abs/2405.06451">Integer partitions detect the primes</a>
+
+### PROG ###
+```
+(Python)
+def M(j, n):
+    dp = [ [0]*(n+1) for _ in range(j+1) ]
+    dp[0][0] = 1
+    for s in range(1, n+1):
+        for l in range(j-1, -1, -1):
+            for t in range(n - s + 1):
+                if (val := dp[l][t]):
+                    for m in range(1, (n - t) // s + 1):
+                        dp[l+1][t + m * s] += val * m
+    return dp[j][n]
+def a(n):
+    return (n**2-3*n+2)*M(1,n) - 8*M(2,n)
+print([a(n) for n in range(1,51)])
+```
+
+### XREF ###
+Cf. A000203, A002127, A002128, A279019.
+
+
+
 ## a(n) = (3n^3 - 13n^2 + 18n - 8) * M(1,n) + (12n^2 -120n + 212)* M(2,n) - 960*M(3,n) with M(j,n) the MacMahon partition function. ##
 
 ### DATA ###
