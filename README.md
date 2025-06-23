@@ -8,6 +8,47 @@ For those sequences already in the database there is alread this [repo](https://
 
 For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
+## Number of distinct products i*j with 1 <= i, j <= n which are also the sum of two numbers between 1 and n. ##
+
+### DATA ###
+`0, 2, 4, 5, 8, 9, 11, 13, 14, 15, 18, 19, 22, 24, 25, 26, 29, 31, 33, 35, 36, 37, 40, 41, 43, 45, 46, 48, 51, 52, 54, 56, 58, 59, 61, 62, 64, 66, 68, 69, 72, 73, 76, 78, 79, 81, 84, 86, 87, 89, 90, 91, 94, 95, 96, 98, 99, 101, 104, 106, 109, 111, 113`
+
+### OFFSET ###
+1
+
+### COMMENTS ###
+Essentialy the intersection of sets: distinct products i*j and distinct sums i+j for 1 <= i, j <= n.
+
+
+### FORMULA ###
+```
+a(n) = 2n - 1 - (primepi(2n) - primepi(n)).
+a(n) = A005408(n-2) - (A000720(2n) - A000720(n)).
+```
+
+### PROG ###
+```
+(Python)
+def a(n):
+    l,s = n << 1,0
+    s = 0
+    for i in range(1, n + 1):
+        m = min(n, l // i)
+        for j in range(1, m + 1):
+            s |= 1 << (i*j)
+    return s.bit_count()-1
+print([a(n) for n in range(1, 64)])
+(Python)
+from sympy import primepi
+a = lambda n: 2*n - 1 - (primepi(2*n) - primepi(n))
+print([a(n) for n in range(1, 64)])
+```
+
+### XREF ###
+Cf. A000720, A005408, A108954, A263995, A375109.
+
+
+
 ## Triangle T(n,k) where each k-th element is the k size MacMahon integer plane partition of n. ##
 
 ### DATA ###
