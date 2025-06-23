@@ -8,6 +8,51 @@ For those the they are already, there is this [repo](https://github.com/daedalus
 
 For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
+## Triangle T(n,k) where each k-th element is the k size MacMahon integer plane partition of n. ##
+
+### DATA ###
+`1, 3, 0, 4, 1, 0, 7, 3, 0, 0, 6, 9, 0, 0, 0, 12, 15, 1, 0, 0, 0, 8, 30, 3, 0, 0, 0, 0, 15, 45, 9, 0, 0, 0, 0, 0, 13, 67, 22, 0, 0, 0, 0, 0, 0, 18, 99, 42, 1, 0, 0, 0, 0, 0, 0, 12, 135, 81, 3, 0, 0, 0, 0, 0, 0, 0, 28, 175, 140, 9, 0, 0, 0, 0, 0, 0, 0, 0`
+
+### COMMENTS ###
+M(j,n) is the MacMahon plane partition function and is defined as the sum over all partitions of n into exactly j distinct parts, each such partition contributing the product of multiplicities of the parts.
+
+### OFFSET ###
+1
+
+### LINK ###
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>
+
+### FORMULA ###
+```
+M(1,n) = A000203(n)
+M(2,n) = A002127(n) for n>= 3 else 0.
+M(3,n) = A002128(n) for n>= 6 else 0.
+```
+
+### PROG ###
+```
+(Python)
+def M(j, n):
+    dp = [ [0]*(n+1) for _ in range(j+1) ]
+    dp[0][0] = 1
+    for s in range(1, n+1):
+        for l in range(j-1, -1, -1):
+            for t in range(n - s + 1):
+                if (val := dp[l][t]):
+                    for m in range(1, (n - t) // s + 1):
+                        dp[l+1][t + m * s] += val * m
+    return dp[j][n]
+row = lambda n: [M(k,n) for k in range (1,n+1)]
+```
+
+### KEYWORD ###
+tabl
+
+### XREF ###
+Cf. A000203, A002127, A002128.
+
+
+
 ## a(n) = (n^2-3n+2)*M(1,n) - 8*M(2,n). ##
 
 ### DATA ###
