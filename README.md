@@ -37,6 +37,10 @@ Cf. A000010, A091507.
 
 ## Symmetric difference of sets: i*j and i+j for 1 <= i, j <= n. ##
 
+
+### COMMENTS ###
+primepi(2n)-primepi(n) >= 1 for n > 1 is central to the Bertrand-Chevyshev theorem, which states that for any n>1 always exist a prime p such that n < p < 2n.
+
 ### DATA ###
 `2, 2, 3, 6, 7, 11, 16, 19, 25, 31, 38, 44, 53, 59, 68, 76, 89, 96, 113, 121, 133, 145, 164, 174, 188, 200, 215, 226, 251, 263, 292, 305, 321, 339, 357, 370, 405, 423, 442, 458, 495, 512, 551, 569, 590, 612, 655, 670, 701, 721, 748, 771, 820, 842, 873, 893, 923, 951, 1006, 1023, 1080, 1110, 1136`
 
@@ -45,6 +49,10 @@ Cf. A000010, A091507.
 a(n) = primepi(2n) - primepi(n) + A375109(n).
 a(n) = A000720(2n) - A000720(n) + A375109(n).
 ```
+
+### LINKS ###
+Wikipedia, < a href="https://en.m.wikipedia.org/wiki/Bertrand%27s_postulate">Bertrand Postúlate</a>.
+
 
 ### PROG ###
 ```
@@ -75,6 +83,7 @@ Cf. A002446, A108954, A263995, A375109.
 
 
 
+
 ## Number of distinct products i*j with 1 <= i, j <= n which are also the sum of two numbers between 1 and n. ##
 
 ### DATA ###
@@ -84,7 +93,10 @@ Cf. A002446, A108954, A263995, A375109.
 1
 
 ### COMMENTS ###
+```
 Essentialy the intersection of sets: distinct products i*j and distinct sums i+j for 1 <= i, j <= n.
+primepi(2n)-primepi(n) >= 1 for n > 1 is central to the Bertrand-Chevyshev theorem, which states that for any n>1 always exist a prime p such that n < p < 2n.
+```
 
 
 ### FORMULA ###
@@ -92,6 +104,10 @@ Essentialy the intersection of sets: distinct products i*j and distinct sums i+j
 a(n) = 2n - 1 - (primepi(2n) - primepi(n)).
 a(n) = A005408(n-2) - (A000720(2n) - A000720(n)).
 ```
+
+### LINKS ###
+Wikipedia, < a href="https://en.m.wikipedia.org/wiki/Bertrand%27s_postulate">Bertrand Postúlate</a>.
+
 
 ### PROG ###
 ```
@@ -115,6 +131,7 @@ print([a(n) for n in range(1, 64)])
 
 ### XREF ###
 Cf. A000720, A005408, A108954, A263995, A375109.
+
 
 
 
@@ -160,6 +177,7 @@ tabl
 
 ### XREF ###
 Cf. A000203, A002127, A002128.
+
 
 
 
