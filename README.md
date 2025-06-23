@@ -30,6 +30,7 @@ a(n) = A005408(n-2) - (A000720(2n) - A000720(n)).
 ```
 (Python)
 def a(n):
+    # Runtime O(n log n).
     l,s = n << 1,0
     s = 0
     for i in range(1, n + 1):
@@ -39,6 +40,7 @@ def a(n):
     return s.bit_count()-1
 print([a(n) for n in range(1, 64)])
 (Python)
+# Runtime O(n log log n).
 from sympy import primepi
 a = lambda n: 2*n - 1 - (primepi(2*n) - primepi(n))
 print([a(n) for n in range(1, 64)])
