@@ -13,6 +13,9 @@ For an explanation of why these sequences are here and not in the OEIS, see [Iss
 ### DATA ###
 `1, 1, 1, 2, 2, 2, 8, 8, 2, 24, 12, 16, 48, 24, 8, 20, 480, 192, 24, 96, 12, 768, 384, 48, 768, 64, 480, 5760, 36, 64, 864, 41472, 960, 88, 1056, 32, 1280, 153600, 1440, 1728, 216, 6144, 3584, 224, 27648, 8640, 4320, 1152, 14400, 38400, 32, 442368, 110592, 96, 2880, 576, 3168, 608256, 331776, 491520, 800, 12800, 69120, 84, 4032, 17280, 17915904, 663552, 44, 17664, 11040, 1720320, 677376, 12096, 1280`
 
+### COMMENTS ###
+a(n) gives a sort of measure of how "coprime" the almost-divisors of n are. It is a highly non-monotonic and quite irregular function.
+
 ### OFFSET ###
 1
 
