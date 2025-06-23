@@ -20,7 +20,7 @@ M(j,n) is the MacMahon plane partition function and is defined as the sum over a
 1
 
 ### LINK ###
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>.
 
 ### FORMULA ###
 ```
@@ -73,8 +73,9 @@ a(n) = A279019(n-4)*M(1,n) - 8*M(2,n).
 1
 
 ### LINK ###
-William Craig, Jan-Willem van Ittersum, Ken Ono, <a href="https://arxiv.org/abs/2405.06451">Integer partitions detect the primes</a>
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>
+William Craig, Jan-Willem van Ittersum, Ken Ono, <a href="https://arxiv.org/abs/2405.06451">Integer partitions detect the primes</a>.
+
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>.
 
 ### PROG ###
 ```
@@ -119,8 +120,9 @@ M(3,n) = A002128(n) for n>= 6 else 0.
 1
 
 ### LINK ###
-William Craig, Jan-Willem van Ittersum, Ken Ono, <a href="https://arxiv.org/abs/2405.06451">Integer partitions detect the primes</a>
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>
+William Craig, Jan-Willem van Ittersum, Ken Ono, <a href="https://arxiv.org/abs/2405.06451">Integer partitions detect the primes</a>.
+
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Plane_partition">Plane partition</a>.
 
 ### PROG ###
 ```
@@ -187,6 +189,7 @@ print([a(n) for n in range(1,52)])
 
 ### LINKS ###
 Numberphile, <a href="https://www.youtube.com/watch?v=a7BVL1MOCl4">A simple equation that behaves strangely</a>.
+
 Wikipedia, <a href="https://en.wikipedia.org/wiki/Vieta_jumping">Vieta jumping</a>.
 
 ### FORMULA ###
@@ -262,6 +265,7 @@ def a(n):
 
 ### LINKS ###
 Eric Weisstein's World of Mathematics, <a href="https://mathworld.wolfram.com/HadamardMatrix.html">Hadamard Matrix</a>.
+
 Wikipedia, <a href="https://en.m.wikipedia.org/wiki/Hadamard_matrix">Hadamard Matrix</a>.
 
 ### XREF ###
@@ -397,7 +401,7 @@ The Reed-muller PROGs are:
 ```
 
 ### LINK ###
-Youtube, <a href="https://www.youtube.com/watch?v=CtOCqKpti7s">Reed-Muller code (64 Shades of Grey pt2) - Computerphile</a>
+Youtube, <a href="https://www.youtube.com/watch?v=CtOCqKpti7s">Reed-Muller code (64 Shades of Grey pt2) - Computerphile</a>.
 
 ### PROG ###
 ```
@@ -496,7 +500,7 @@ Cf. A000040, A383752.
 Leading zeros are omitted.
 
 ### LINKS ###
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Rule_110">Rule 110</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Rule_110">Rule 110</a>.
 
 ### EXAMPLE ###
 ```
@@ -720,6 +724,7 @@ Last digit in a(n) is A375584(m).
 
 ### LINKS ###
 H. Michael Damm, <a href="https://doi.org/10.1016/j.disc.2006.05.033">Totally anti-symmetric quasigroups for all orders n not equal to 2 or 6</a>, Discrete Math., 307:6 (2007), 715-729.
+
 Wikipedia, <a href="https://en.wikipedia.org/wiki/Damm_algorithm">Damm algorithm</a>.
 
 ### PROG ###
@@ -832,7 +837,7 @@ Concatenate the hex digits of all numbers from 0 to n-1 into a string, compute t
 ```
 
 ### LINKS ###
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman coding</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman coding</a>.
 
 ### EXAMPLE ###
 ```
@@ -881,7 +886,7 @@ a(n) always has an even number of bits set.
 ```
 
 ### LINKS ###
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Hamming_PROG">Hamming PROG</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Hamming_PROG">Hamming PROG</a>.
 
 ### OFFSET ###
 0
@@ -951,7 +956,7 @@ The initial K call and all further recursive calls are counted in a(n).
 ```
 
 ### LINKS ###
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba algorithm</a>.
 
 ### PROG ###
 ```
@@ -1000,7 +1005,7 @@ Concatenate the digits of all numbers from 0 to n-1 into a string, compute the d
 ```
 
 ### LINKS ###
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman coding</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Huffman_coding">Huffman coding</a>.
 
 ### EXAMPLE ###
 ```
@@ -1198,10 +1203,13 @@ The lexicographic rank of a permutation of n elements is its position in the ord
 ```
 
 ### LINKS ###
-geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters">Lexicographic rank of a String</a>
-Sergey Slotin, <a href="https://algorithmica.org/en/eytzinger">Eytzinger binary search</a>
-sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutations.html#sympy.combinatorics.permutations.Permutation.rank">Permutation rank</a>
-Wikipedia, <a href="https://en.wikipedia.org/wiki/bitonic_sorter">bitonic sort</a>
+geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters">Lexicographic rank of a String</a>.
+
+Sergey Slotin, <a href="https://algorithmica.org/en/eytzinger">Eytzinger binary search</a>.
+
+sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutations.html#sympy.combinatorics.permutations.Permutation.rank">Permutation rank</a>.
+
+Wikipedia, <a href="https://en.wikipedia.org/wiki/bitonic_sorter">bitonic sort</a>.
 
 ### PROG ###
 ```
@@ -1265,10 +1273,13 @@ The lexicographic rank of a permutation of n elements is its position in the ord
 ```
 
 ### LINKS ###
-geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters">Lexicographic rank of a String</a>
-Sergey Slotin, <a href="https://algorithmica.org/en/eytzinger">Eytzinger binary search</a>
-sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutations.html#sympy.combinatorics.permutations.Permutation.rank">Permutation rank</a>
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>
+geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/lexicographic-rank-string-duplicate-characters">Lexicographic rank of a String</a>.
+
+Sergey Slotin, <a href="https://algorithmica.org/en/eytzinger">Eytzinger binary search</a>.
+
+sympy.org, <a href="https://docs.sympy.org/latest/modules/combinatorics/permutations.html#sympy.combinatorics.permutations.Permutation.rank">Permutation rank</a>.
+
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble sort</a>.
 
 ### PROG ###
 ```
@@ -1460,7 +1471,7 @@ a(n) = a(n-1) + 1 for n = 3 mod 4.
 ```
 
 ### LINK ###
-Wikipedia, <a href="https://en.wikipedia.org/wiki/Run-length_limited">Run-length limited</a>
+Wikipedia, <a href="https://en.wikipedia.org/wiki/Run-length_limited">Run-length limited</a>.
 
 ### PROG ###
 ```
@@ -1671,7 +1682,7 @@ In the original version of the optimal file merge pattern the cost is calculated
 1
 
 ### LINK ###
-geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/">Optimal merge patterns</a>
+geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/">Optimal merge patterns</a>.
 
 ### EXAMPLE ###
 ```
@@ -1722,7 +1733,7 @@ a(n) is divisible by n!.
 1
 
 ### LINK ###
-geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/">Optimal merge patterns</a>
+geeksforgeeks.org, <a href="https://www.geeksforgeeks.org/optimal-file-merge-patterns/">Optimal merge patterns</a>.
 
 ### EXAMPLE ###
 ```
