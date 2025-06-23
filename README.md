@@ -4,7 +4,7 @@ These are my integer sequences that at the day of this publishing are not in the
 
 They are lincensed under the [Creative Commons Attribution Share-Alike 4.0 license (CC-BY-SA-4.0).](https://creativecommons.org/licenses/by-sa/4.0/)
 
-For those the they are already, there is this [repo](https://github.com/daedalus/MyOEIS).
+For those sequences already in the database there is alread this [repo](https://github.com/daedalus/MyOEIS).
 
 For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
