@@ -8,6 +8,46 @@ For those sequences already in the database there is alread this [repo](https://
 
 For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
+## Symmetric difference of sets: i*j and i+j for 1 <= i, j <= n. ##
+
+### DATA ###
+`2, 2, 3, 6, 7, 11, 16, 19, 25, 31, 38, 44, 53, 59, 68, 76, 89, 96, 113, 121, 133, 145, 164, 174, 188, 200, 215, 226, 251, 263, 292, 305, 321, 339, 357, 370, 405, 423, 442, 458, 495, 512, 551, 569, 590, 612, 655, 670, 701, 721, 748, 771, 820, 842, 873, 893, 923, 951, 1006, 1023, 1080, 1110, 1136`
+
+### FORMULA ###
+```
+a(n) = primepi(2n) - primepi(n) + A375109(n).
+a(n) = A000720(2n) - A000720(n) + A375109(n).
+```
+
+### PROG ###
+```
+(Python)
+def a(n):
+    bs = ((1 << (2*n+1)) - 2)
+    bp = 0
+    l = 2*n
+    for i in range(1, n+1):
+        for j in range(1, i+1):
+            bp |= 1 << (i*j)
+    return (bs ^ bp).bit_count()+1
+print([a(n) for n in range(1, 64)])
+(Python)
+from sympy import primepi
+def a(n):
+    l = n << 1
+    p = len({x 
+             for i in range(1, n+1)
+             for j in range(1, i+1)
+             if (x:=i*j) > l})
+    return primepi(l) - primepi(n) + p + 1
+print([a(n) for n in range(1, 64)])
+```
+
+### XREF ###
+Cf. A002446, A108954, A263995, A375109.
+
+
+
 ## Number of distinct products i*j with 1 <= i, j <= n which are also the sum of two numbers between 1 and n. ##
 
 ### DATA ###
