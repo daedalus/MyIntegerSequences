@@ -48,6 +48,8 @@ primepi(2n)-primepi(n) >= 1 for n > 1 is central to the Bertrand-Chevyshev theor
 ```
 a(n) = primepi(2n) - primepi(n) + A375109(n).
 a(n) = A000720(2n) - A000720(n) + A375109(n).
+a(n) = A027424(n) - (2*n-1) + 2*(primepi(2n) - primepi(n)).
+a(n) = A027424(n) - (2*n-1) + 2*(A000720(2n) - A000720(n)).
 ```
 
 ### LINKS ###
@@ -79,7 +81,7 @@ print([a(n) for n in range(1, 64)])
 ```
 
 ### XREF ###
-Cf. A002446, A108954, A263995, A375109.
+Cf. A002446, A027424, A108954, A263995, A375109.
 
 
 
