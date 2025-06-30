@@ -8,6 +8,46 @@ For those sequences already in the database there is alread this [repo](https://
 
 For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
+## Denominator of the product of Z(k) for k in [2,2n] where Z is the Riemann Zeta function. ##
+
+### DATA ###
+`6, 540, 510300, 4822335000, 451153550925000, 288067350867580659375000, 2627638748515609587313242187500, 855668397605812968586200315303076171875000, 33353351303282066817838186561741046895875775146484375000, 51074969616905297846770753353095329781107353215640111751556396484375000`
+
+### OFFSET ###
+1
+
+### FORMULA ###
+```
+a(n) = denominator(Product_{k=2..2n} Zeta(k)).
+a(n) = denominator(Product_{k=1..n} (Bernoulli(2*k) * 4^k) / (2*Factorial(2*k)))
+```
+
+### PROG ###
+```
+(Python)
+from sympy import denom
+from sympy.functions.special.zeta_functions import zeta
+def a(n):
+  prod = 1
+  for k in range(2,2*n+1):
+    prod *= zeta(k)
+  return denom(prod)
+print([a(n) for n in range(1, 11)])
+(Python)
+from sympy import bernoulli, factorial, denom
+def a(n):
+    prod = 1
+    for k in range(1, n + 1):
+        B = bernoulli(k << 1)
+        prod *= ((B * (1 << (k << 1))) / (factorial(k << 1) << 1))
+    return denom(prod)
+print([a(n) for n in range(1, 11)])
+```
+
+### XREF ###
+Cf. A000142.
+
+
 ## a(n) = 2^m+r where m=min{m>=1: binomial(m+1,2)>=n} and r=binomial(m,2)-1. ##
 
 ### DATA ###
