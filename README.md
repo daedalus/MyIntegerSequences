@@ -42,6 +42,27 @@ def a(n):
         prod *= ((B * (1 << (k << 1))) / (factorial(k << 1) << 1))
     return denom(prod)
 print([a(n) for n in range(1, 11)])
+(Python)
+from sympy import bernoulli, factorial, gcd
+def a(n):
+    num = 1
+    den = 1
+    for k in range(1, n + 1):
+        k2 = k << 1
+        B = bernoulli(k2)
+        b_num, b_den = B.as_numer_denom()
+        term_num = b_num * (1 << (k2-1))
+        term_den = b_den * factorial(k2) 
+        g = gcd(term_num, term_den)
+        term_num //= g
+        term_den //= g
+        num *= term_num
+        den *= term_den
+        g = gcd(num, den)
+        num //= g
+        den //= g
+    return den
+print([a(n) for n in range(1, 11)])
 ```
 
 ### XREF ###
