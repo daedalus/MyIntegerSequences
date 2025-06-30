@@ -38,8 +38,9 @@ from sympy import bernoulli, factorial, denom
 def a(n):
     prod = 1
     for k in range(1, n + 1):
-        B = bernoulli(k << 1)
-        prod *= ((B * (1 << (k << 1))) / (factorial(k << 1) << 1))
+        k2 = k << 1
+        B = bernoulli(k2)
+        prod *= (B * (1 << (k2-1)) / factorial(k2))
     return denom(prod)
 print([a(n) for n in range(1, 11)])
 (Python)
