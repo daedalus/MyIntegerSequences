@@ -45,25 +45,29 @@ def a(n):
 print([a(n) for n in range(1, 11)])
 (Python)
 from sympy import bernoulli, factorial, gcd
-def a(n):
-    num = 1
-    den = 1
-    for k in range(1, n + 1):
+def G():
+    k = 1
+    num, den = 1, 1
+    term_num, term_den = 1, 1
+    while True:
         k2 = k << 1
         B = bernoulli(k2)
         b_num, b_den = B.as_numer_denom()
         term_num = b_num * (1 << (k2-1))
         term_den = b_den * factorial(k2) 
-        g = gcd(term_num, term_den)
-        term_num //= g
-        term_den //= g
+        if (g := gcd(term_num, term_den)) > 1:
+            term_num //= g
+            term_den //= g
         num *= term_num
         den *= term_den
-        g = gcd(num, den)
-        num //= g
-        den //= g
+        if (g := gcd(num, den)) > 1:
+            num //= g
+            den //= g
+        yield den
+        k += 1
     return den
-print([a(n) for n in range(1, 11)])
+from itertools import islice
+print(list(islice(G(), 10))) 
 ```
 
 ### XREF ###
