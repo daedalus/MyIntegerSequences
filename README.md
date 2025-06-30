@@ -8,6 +8,38 @@ For those sequences already in the database there is alread this [repo](https://
 
 For an explanation of why these sequences are here and not in the OEIS, see [Issue #1](https://github.com/daedalus/MyIntegerSequences/issues/1).
 
+## a(n) = 2^m+r where m=min{m>=1: binomial(m+1,2)>=n} and r=binomial(m,2)-1. ##
+
+### DATA ###
+`2, 4, 5, 8, 9, 10, 16, 17, 18, 19, 32, 33, 34, 35, 36, 64, 65, 66, 67, 68, 69, 128, 129, 130, 131, 132, 133, 134, 256, 257, 258, 259, 260, 261, 262, 263, 512, 513, 514, 515, 516, 517, 518, 519, 520, 1024, 1025, 1026, 1027, 1028, 1029, 1030, 1031, 1032, 1033, 2048`
+
+
+### COMENTS ###
+```
+a(n) = 2^m+r where m is the smallest m such that binomial(m,2) < n <= binomial(m+1,2) and r=binomial(m,2)-1 .
+Since a(n) is monotonically ascendant and a(1) = 2 it contains no fixed points.
+```
+
+### FORMULA ###
+```
+a(n) = 2^m(n) + (n-1-(m(n)*m(n+1))/2) where m(n) = ceiling((-1+sqrt(1+8n))/2).
+a(n) = 2^A002024(n) + A002262(n).
+```
+
+### PROG ###
+```
+(Python)
+from math import isqrt
+def a(n):
+    m = (isqrt((n<<3)-7)+1) >> 1
+    r = (n - 1) - ((m * (m - 1)) >> 1)
+    return (1 << m) | r
+print([a(n) for n in range(1,57)])
+```
+
+### XREF ###
+Cf. A002024, A002262, A003056.
+
 ## Product of the totients of the antidivisors of n. ##
 
 ### DATA ###
